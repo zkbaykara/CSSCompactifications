@@ -1,0 +1,500 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     19076,        492]
+NotebookOptionsPosition[     16103,        441]
+NotebookOutlinePosition[     16604,        459]
+CellTagsIndexPosition[     16561,        456]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[TextData[{
+ "CSS ",
+ StyleBox["Compactifications",
+  IgnoreSpellCheck->True]
+}], "Title",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ CellChangeTimes->{{3.836896623474103*^9, 
+  3.83689663664823*^9}},ExpressionUUID->"848964ea-15fe-44f9-8d71-\
+bf34a22486fd"],
+
+Cell[CellGroupData[{
+
+Cell["Installation", "Subsection",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ CellChangeTimes->{{3.837156826055052*^9, 
+  3.8371568402601147`*^9}},ExpressionUUID->"b26a2105-1435-4a65-94bf-\
+827ba61f4f2c"],
+
+Cell[TextData[{
+ "The following command will install the ",
+ StyleBox["CSSCompactifications",
+  FontWeight->"Bold"],
+ " package to your Mathematica directory (internet connection required). \
+Click on the code cell below and press \[ShiftKey] + \[EnterKey] to run it. "
+}], "Text",
+ Editable->False,
+ Deletable->False,
+ CellChangeTimes->{{3.8368966515248947`*^9, 3.836896712920559*^9}, {
+  3.836896931007263*^9, 3.836896984079319*^9}, {3.836901905752995*^9, 
+  3.8369019094726057`*^9}, {3.837156557864194*^9, 3.837156620104547*^9}, {
+  3.837156724004603*^9, 3.8371567297324257`*^9}},
+ Background->RGBColor[
+  1, 1, 0.85],ExpressionUUID->"c95b40c7-c253-4a5f-94c4-2b510af2c386"],
+
+Cell[BoxData[
+ RowBox[{"If", "[", 
+  RowBox[{
+   RowBox[{"Check", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"CopyFile", "[", 
+       RowBox[{
+        RowBox[{
+        "URL", "[", 
+         "\"\<https://raw.githubusercontent.com/zkbaykara/\
+CSSCompactifications/main/CSSCompactifications.m\>\"", "]"}], ",", "\n", 
+        RowBox[{"FileNameJoin", "[", 
+         RowBox[{"{", 
+          RowBox[{
+          "$UserBaseDirectory", ",", 
+           "\"\<Applications/CSSCompactifications.m\>\""}], "}"}], "]"}], ",", 
+        RowBox[{"OverwriteTarget", "->", "True"}]}], "]"}], ";", "True"}], 
+     ",", "False"}], "]"}], ",", "\n", 
+   RowBox[{"Print", "[", "\"\<Package was successfully installed.\>\"", "]"}],
+    ",", "\n", 
+   RowBox[{"Print", "[", "\"\<Installation was unsuccessful.\>\"", "]"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{
+  3.836896986300452*^9, {3.836897089890551*^9, 3.836897095130378*^9}, {
+   3.836897170980172*^9, 3.8368971755170927`*^9}, {3.836897263559247*^9, 
+   3.836897270406986*^9}, {3.836897313445883*^9, 3.836897361919256*^9}, {
+   3.836897452902665*^9, 3.836897453509492*^9}, 3.836897568218725*^9, 
+   3.8368978934124823`*^9, {3.836901053782631*^9, 3.8369010546685038`*^9}, {
+   3.8369127578293133`*^9, 3.836912757939109*^9}, {3.837011353907865*^9, 
+   3.837011362991947*^9}, {3.837156509686151*^9, 
+   3.837156539766457*^9}},ExpressionUUID->"30d4df75-be23-46e1-9429-\
+31524e425a05"],
+
+Cell["\<\
+From now on, in any notebook, only the following code is needed to load the \
+package.\
+\>", "Text",
+ Editable->False,
+ Deletable->False,
+ CellChangeTimes->{
+  3.83689757215989*^9, {3.83689784062547*^9, 3.8368978825241528`*^9}, {
+   3.8369010655090218`*^9, 3.836901071892415*^9}, {3.836902003044635*^9, 
+   3.8369020206838417`*^9}, {3.8369020605029297`*^9, 3.836902070916583*^9}},
+ Background->RGBColor[
+  1, 1, 0.85],ExpressionUUID->"2b857df0-9273-42af-8a6c-8a1f0e895b58"],
+
+Cell[BoxData[
+ RowBox[{"<<", "CSSCompactifications`"}]], "Input",
+ CellChangeTimes->{{3.836897870679496*^9, 3.8368979036272*^9}, 
+   3.8369010155652113`*^9},
+ CellLabel->"",ExpressionUUID->"afde0e52-52e9-4277-a4c9-90b3f1f2d1ec"],
+
+Cell["It is also good to check for updates now and then.", "Text",
+ Editable->False,
+ Selectable->True,
+ Deletable->False,
+ CellChangeTimes->{
+  3.83689757215989*^9, {3.83689784062547*^9, 3.8368978825241528`*^9}, {
+   3.8369010655090218`*^9, 3.836901071892415*^9}, {3.836902003044635*^9, 
+   3.8369020206838417`*^9}, {3.8369020605029297`*^9, 3.836902070916583*^9}, {
+   3.837156684867899*^9, 3.837156709386338*^9}, {3.8371568965071774`*^9, 
+   3.837156898585026*^9}, {3.837156932458478*^9, 3.837156933569762*^9}},
+ Background->RGBColor[
+  1, 1, 0.85],ExpressionUUID->"8863874b-d5ac-459d-894a-7334592b4c85"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"UpdateCSSCompactifications", "[", "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.837156741395712*^9, 
+  3.8371567566609707`*^9}},ExpressionUUID->"2c23d79a-2392-4afc-9aef-\
+877811ee2b7f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["CSS Lattices", "Subsection",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ CellChangeTimes->{{3.8371568630232897`*^9, 
+  3.83715687580882*^9}},ExpressionUUID->"bd0ded2d-44c6-42cc-be1b-\
+5a381e3be0f7"],
+
+Cell[TextData[{
+ "To get the CSS lattice as embedded in ",
+ Cell[BoxData[
+  FormBox[
+   SuperscriptBox[
+    TemplateBox[{},
+     "Reals"], 
+    RowBox[{"24", ",", "8"}]], TraditionalForm]],ExpressionUUID->
+  "0ac6f42c-5642-40ca-bfd8-8216190ffdf9"],
+ ", run the following code. Here, we use HM44, which is the 12th lattice \
+among the rank 6 sublattices."
+}], "Text",
+ Editable->False,
+ Deletable->False,
+ CellChangeTimes->{
+  3.83689757215989*^9, {3.83689784062547*^9, 3.8368978825241528`*^9}, {
+   3.8369010655090218`*^9, 3.836901071892415*^9}, {3.836901418818056*^9, 
+   3.836901512667742*^9}, {3.836901777005293*^9, 3.836901778876689*^9}},
+ Background->RGBColor[
+  1, 1, 0.85],ExpressionUUID->"1da9d91f-17c8-47db-a260-196e1a981975"],
+
+Cell[BoxData[
+ RowBox[{"CSSLattice", "[", 
+  RowBox[{"6", ",", "12"}], "]"}]], "Input",
+ CellChangeTimes->{{3.8368979853473997`*^9, 3.836897990212799*^9}, {
+   3.83689806619232*^9, 3.8368980678637943`*^9}, 
+   3.836901017715641*^9},ExpressionUUID->"9ecf3b5d-adb3-4a04-bd12-\
+299cfe795056"],
+
+Cell["\<\
+We can check if it is unimodular. We calculate the determinant of the Gram \
+matrix.\
+\>", "Text",
+ Editable->False,
+ Deletable->False,
+ CellChangeTimes->{{3.836898238107574*^9, 3.8368983053265057`*^9}, {
+   3.836898349505394*^9, 3.836898365136323*^9}, 3.8369010240977077`*^9, {
+   3.836901525846302*^9, 3.836901564589004*^9}},
+ Background->RGBColor[
+  1, 1, 0.85],ExpressionUUID->"e43259ab-5241-44b8-9a05-bb98684ad41c"],
+
+Cell[BoxData[
+ RowBox[{"Det", "@", 
+  RowBox[{"CSSGram", "[", 
+   RowBox[{"6", ",", "12"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.8368982630031137`*^9, 3.8368982756049767`*^9}, {
+  3.836898309046867*^9, 
+  3.836898368728949*^9}},ExpressionUUID->"26c8c981-5591-469c-a8c4-\
+4e7f44e68370"],
+
+Cell["\<\
+The following form may also be used if preferred, where instead of giving its \
+rank (=6) and its order within that rank (=12), we can simply use the \
+numbering as used in Table 1 of H\[ODoubleDot]hn-Mason.\
+\>", "Text",
+ Editable->False,
+ Deletable->False,
+ CellChangeTimes->{{3.836898070524746*^9, 3.836898116680867*^9}, 
+   3.836901034117672*^9, {3.8369015921990843`*^9, 3.8369015967500753`*^9}, {
+   3.837156989997244*^9, 3.837157105679244*^9}},
+ Background->RGBColor[
+  1, 1, 0.85],ExpressionUUID->"c9252fb7-80f4-46f9-bb17-e504c4a17d15"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CSSLattice", "[", "44", "]"}], "\[Equal]", 
+  RowBox[{"CSSLattice", "[", 
+   RowBox[{"6", ",", "12"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.8368981181418343`*^9, 3.836898129193533*^9}, 
+   3.836901041685626*^9},ExpressionUUID->"1d9bd07a-18b0-45bd-a394-\
+086a283a5162"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["K3 Lattice Computations", "Subsection",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ CellChangeTimes->{{3.837157125695711*^9, 
+  3.837157144688781*^9}},ExpressionUUID->"6325b072-db89-47b4-b606-\
+e7bdc3c4ae2f"],
+
+Cell[TextData[{
+ "We introduce the function for ",
+ StyleBox["orbifolding",
+  IgnoreSpellCheck->True],
+ ". This function takes in a lattice which is represented by a list of its \
+basis vectors and an antisymmetric background. Let\[CloseCurlyQuote]s take \
+the ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["D", "4"], TraditionalForm]],ExpressionUUID->
+  "9d49ce5e-53e6-42b2-b243-52148c36d953"],
+ " model as an example:"
+}], "Text",
+ Editable->False,
+ Selectable->True,
+ Deletable->False,
+ CellChangeTimes->{{3.836898459152378*^9, 3.836898590569063*^9}, {
+   3.8368993421839314`*^9, 3.836899344128273*^9}, 3.836901045123507*^9, 
+   3.836901609927146*^9, {3.836902383176877*^9, 3.836902452822983*^9}},
+ Background->RGBColor[
+  1, 1, 0.85],ExpressionUUID->"8e10b878-4e23-476d-9f39-83fb88361e05"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Lattice", "=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"1", ",", "0", ",", "0", ",", "1"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", 
+        RowBox[{"-", "1"}], ",", "0", ",", "0"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", 
+        RowBox[{"-", "1"}], ",", "0", ",", "1"}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", "0", ",", "1", ",", 
+        RowBox[{"-", "1"}]}], "}"}]}], "}"}], "/", 
+    RowBox[{"\[Sqrt]", "2"}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Bfield", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "1", ",", "0", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "1"}], ",", "0", ",", "0", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "0", ",", 
+       RowBox[{"-", "1"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", "0", ",", "1", ",", "0"}], "}"}]}], "}"}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.836898510972068*^9, 3.836898512885709*^9}, {
+   3.8368985586453447`*^9, 3.8368986190336447`*^9}, 
+   3.8369016235353613`*^9},ExpressionUUID->"ec471f67-7b18-40de-ac72-\
+1cfc6e0b844f"],
+
+Cell[TextData[{
+ "We can orbifold this torus theory by ",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox[
+    TemplateBox[{},
+     "Integers"], "M"], TraditionalForm]],ExpressionUUID->
+  "c50878a3-a5f0-48e6-9df2-37e397aef019"],
+ ", where M is 2, 3, or 4. As a result, we get the Gram matrix of the lattice \
+of RR singlets of the SU(2)\[Cross]SU(2) action in the orbifolded theory. \n\n\
+This function returns ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox["x", "\[Perpendicular]"], "\[Intersection]", " ", 
+    RowBox[{
+     SuperscriptBox["H", "even"], "(", 
+     RowBox[{"X", ",", 
+      TemplateBox[{},
+       "Integers"]}], ")"}]}], TraditionalForm]],ExpressionUUID->
+  "32ce6cb8-c431-48bd-baf3-bbe2fdff8a7a"],
+ " as explained in the paper."
+}], "Text",
+ Editable->False,
+ Selectable->True,
+ Deletable->False,
+ CellChangeTimes->{{3.836898629122499*^9, 3.8368987005250874`*^9}, {
+   3.836898920660644*^9, 3.836899023573913*^9}, {3.8368991002526197`*^9, 
+   3.83689910265239*^9}, {3.83689934903196*^9, 3.8368994038540707`*^9}, 
+   3.8369016298304777`*^9, {3.836901883781754*^9, 3.8369018922229767`*^9}, {
+   3.8369024770631857`*^9, 3.8369025032317*^9}, {3.836902642084456*^9, 
+   3.836902645450629*^9}, {3.837157231907226*^9, 3.837157338596271*^9}, {
+   3.8371577106962967`*^9, 3.8371577113355207`*^9}},
+ Background->RGBColor[
+  1, 1, 0.85],ExpressionUUID->"58886795-1ef0-49cc-a2af-e9059d43c3cd"],
+
+Cell[BoxData[
+ RowBox[{"OrbifoldLattice", "[", 
+  RowBox[{"Lattice", ",", "Bfield", ",", "2"}], "]"}]], "Input",
+ CellChangeTimes->{{3.836899028123734*^9, 3.8368990482462378`*^9}, {
+  3.836899559686314*^9, 3.836899562431336*^9}, {3.8369016394964952`*^9, 
+  3.836901643103922*^9}, {3.837157180554957*^9, 3.8371571805939293`*^9}, {
+  3.837157886813485*^9, 
+  3.837157887004786*^9}},ExpressionUUID->"c7bccad8-2498-4257-a0c6-\
+0d496435dba4"],
+
+Cell["\<\
+The lattice is negative definite, so we reverse its sign. To compare with \
+Leech sublattices, we convert the lattice to a form readable by MAGMA. The \
+following code copies the corresponding MAGMA code to the clipboard.\
+\>", "Text",
+ Editable->False,
+ Selectable->True,
+ Deletable->False,
+ CellChangeTimes->{{3.83689905110839*^9, 3.836899156250132*^9}, {
+  3.83690267976306*^9, 3.836902680017663*^9}, {3.83715743359785*^9, 
+  3.837157442079211*^9}},
+ Background->RGBColor[
+  1, 1, 0.85],ExpressionUUID->"4675896c-4914-477f-97d8-9259a131cf04"],
+
+Cell[BoxData[
+ RowBox[{"ToMagmaMatrix", "[", 
+  RowBox[{"-", 
+   RowBox[{"OrbifoldLattice", "[", 
+    RowBox[{"Lattice", ",", "Bfield", ",", "2"}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.836899157311756*^9, 3.836899172019537*^9}, {
+  3.836899563967347*^9, 3.836899564885954*^9}, {3.8369016537775297`*^9, 
+  3.836901654656571*^9}},ExpressionUUID->"03127e2d-b82f-44aa-b210-\
+3821cb2650cf"],
+
+Cell[TextData[{
+ "Next, one can start MAGMA and paste the MAGMA-friendly code from the \
+clipboard by the usual paste command: \[CloverLeaf]+V for Mac or \
+\[ControlKey] + V for Windows. To compare ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SuperscriptBox["x", "\[Perpendicular]"], "\[Intersection]", " ", 
+    RowBox[{
+     SuperscriptBox["H", "even"], "(", 
+     RowBox[{"X", ",", 
+      TemplateBox[{},
+       "Integers"]}], ")"}]}], TraditionalForm]],ExpressionUUID->
+  "ff48d70b-a6e7-48bd-b31f-1fadbd74531d"],
+ " with a Leech sublattice, we use the built-in MAGMA function called \
+\[OpenCurlyDoubleQuote]IsIsometric( _ , _ )\[CloseCurlyDoubleQuote] which \
+takes in two lattices and returns true if they are isometric. For the case of \
+",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox["D", "4"], TraditionalForm]],ExpressionUUID->
+  "47a8b539-a4da-4ee4-917c-160a33bd69a5"],
+ "/",
+ Cell[BoxData[
+  FormBox[
+   SubscriptBox[
+    TemplateBox[{},
+     "Integers"], "2"], TraditionalForm]],ExpressionUUID->
+  "a41a222c-f1ee-46d7-8cd9-7920a9185dd9"],
+ ", compare it with lattices[4][1][1] to see that it returns true. (\
+\[OpenCurlyDoubleQuote]lattices\[CloseCurlyDoubleQuote] is provided by the \
+electronic supplement to the H\[ODoubleDot]hn-Mason paper.)"
+}], "Text",
+ Editable->True,
+ Deletable->False,
+ CellChangeTimes->{{3.836899175408833*^9, 3.836899339783062*^9}, {
+  3.836899425842197*^9, 3.836899481516111*^9}, {3.836902699514032*^9, 
+  3.836902718113353*^9}, {3.836902797207856*^9, 3.836902803825097*^9}, {
+  3.836902863168014*^9, 3.836902876701651*^9}, {3.8369029151229973`*^9, 
+  3.8369029249593983`*^9}, {3.836903133143283*^9, 3.836903207848899*^9}, {
+  3.837157481119947*^9, 3.837157581443795*^9}, {3.8371579019108047`*^9, 
+  3.837157947862822*^9}},
+ Background->RGBColor[
+  1, 1, 0.85],ExpressionUUID->"35662906-8054-4a8a-8bce-095116d9516d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Help", "Subsection",
+ Editable->False,
+ Selectable->False,
+ Deletable->False,
+ CellChangeTimes->{{3.837157681869915*^9, 
+  3.837157695720042*^9}},ExpressionUUID->"803fcdb3-3364-4e2b-a8ab-\
+95550acb77af"],
+
+Cell["\<\
+The \[OpenCurlyDoubleQuote]CSSLattice[dim_, no_]\[CloseCurlyDoubleQuote] and \
+\[OpenCurlyDoubleQuote]OrbifoldLattice[Lattice_, Bfield_, M_]\
+\[CloseCurlyDoubleQuote] functions we introduced should be enough for most \
+purposes. There are many more functions included in the package. Running the \
+following code lists all functions. Clicking a function in the list describes \
+its usage.\
+\>", "Text",
+ Editable->False,
+ Deletable->False,
+ CellChangeTimes->{{3.836898131253696*^9, 3.836898210659877*^9}, {
+  3.836898390122614*^9, 3.836898456371056*^9}, {3.836899492619576*^9, 
+  3.836899544220623*^9}, {3.836900868474291*^9, 3.836900907535796*^9}, {
+  3.836901786339836*^9, 3.83690184785466*^9}, {3.8369032200329847`*^9, 
+  3.836903221807735*^9}, {3.836913463411463*^9, 3.836913469018834*^9}, {
+  3.837157619669627*^9, 3.837157621875465*^9}},
+ Background->RGBColor[
+  1, 1, 0.85],ExpressionUUID->"88336f80-7f34-48ff-97a2-f8ea23042329"],
+
+Cell[BoxData[
+ RowBox[{"?", "CSSCompactifications`*"}]], "Input",
+ CellChangeTimes->{{3.836898430526196*^9, 3.836898432803935*^9}, {
+   3.836899526229169*^9, 3.836899532827653*^9}, 
+   3.8369009148573847`*^9},ExpressionUUID->"ee3bd143-4048-401e-a44b-\
+42eddc954d54"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 911},
+WindowMargins->{{194, Automatic}, {Automatic, 7}},
+SpellingDictionaries->{"CorrectWords"->{
+ "sublattices", "orbifolded", "sublattice", "H\[ODoubleDot]hn"}},
+FrontEndVersion->"12.1 for Mac OS X x86 (64-bit) (March 18, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"0f4a7a70-f1ef-4b0e-8ce6-f68d50a6576d"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 276, 10, 98, "Title",ExpressionUUID->"848964ea-15fe-44f9-8d71-bf34a22486fd"],
+Cell[CellGroupData[{
+Cell[881, 36, 219, 6, 54, "Subsection",ExpressionUUID->"b26a2105-1435-4a65-94bf-827ba61f4f2c"],
+Cell[1103, 44, 676, 14, 74, "Text",ExpressionUUID->"c95b40c7-c253-4a5f-94c4-2b510af2c386"],
+Cell[1782, 60, 1419, 32, 220, "Input",ExpressionUUID->"30d4df75-be23-46e1-9429-31524e425a05"],
+Cell[3204, 94, 483, 11, 51, "Text",ExpressionUUID->"2b857df0-9273-42af-8a6c-8a1f0e895b58"],
+Cell[3690, 107, 228, 4, 30, "Input",ExpressionUUID->"afde0e52-52e9-4277-a4c9-90b3f1f2d1ec"],
+Cell[3921, 113, 606, 11, 51, "Text",ExpressionUUID->"8863874b-d5ac-459d-894a-7334592b4c85"],
+Cell[4530, 126, 220, 5, 30, "Input",ExpressionUUID->"2c23d79a-2392-4afc-9aef-877811ee2b7f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4787, 136, 218, 6, 54, "Subsection",ExpressionUUID->"bd0ded2d-44c6-42cc-be1b-5a381e3be0f7"],
+Cell[5008, 144, 735, 19, 74, "Text",ExpressionUUID->"1da9d91f-17c8-47db-a260-196e1a981975"],
+Cell[5746, 165, 289, 6, 30, "Input",ExpressionUUID->"9ecf3b5d-adb3-4a04-bd12-299cfe795056"],
+Cell[6038, 173, 430, 10, 51, "Text",ExpressionUUID->"e43259ab-5241-44b8-9a05-bb98684ad41c"],
+Cell[6471, 185, 289, 7, 30, "Input",ExpressionUUID->"26c8c981-5591-469c-a8c4-4e7f44e68370"],
+Cell[6763, 194, 553, 11, 74, "Text",ExpressionUUID->"c9252fb7-80f4-46f9-bb17-e504c4a17d15"],
+Cell[7319, 207, 307, 7, 30, "Input",ExpressionUUID->"1d9bd07a-18b0-45bd-a394-086a283a5162"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7663, 219, 228, 6, 54, "Subsection",ExpressionUUID->"6325b072-db89-47b4-b606-e7bdc3c4ae2f"],
+Cell[7894, 227, 792, 20, 74, "Text",ExpressionUUID->"8e10b878-4e23-476d-9f39-83fb88361e05"],
+Cell[8689, 249, 1256, 36, 53, "Input",ExpressionUUID->"ec471f67-7b18-40de-ac72-1cfc6e0b844f"],
+Cell[9948, 287, 1407, 34, 120, "Text",ExpressionUUID->"58886795-1ef0-49cc-a2af-e9059d43c3cd"],
+Cell[11358, 323, 437, 8, 30, "Input",ExpressionUUID->"c7bccad8-2498-4257-a0c6-0d496435dba4"],
+Cell[11798, 333, 555, 12, 97, "Text",ExpressionUUID->"4675896c-4914-477f-97d8-9259a131cf04"],
+Cell[12356, 347, 396, 8, 30, "Input",ExpressionUUID->"03127e2d-b82f-44aa-b210-3821cb2650cf"],
+Cell[12755, 357, 1856, 43, 143, "Text",ExpressionUUID->"35662906-8054-4a8a-8bce-095116d9516d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14648, 405, 209, 6, 54, "Subsection",ExpressionUUID->"803fcdb3-3364-4e2b-a8ab-95550acb77af"],
+Cell[14860, 413, 946, 17, 97, "Text",ExpressionUUID->"88336f80-7f34-48ff-97a2-f8ea23042329"],
+Cell[15809, 432, 266, 5, 30, "Input",ExpressionUUID->"ee3bd143-4048-401e-a44b-42eddc954d54"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
